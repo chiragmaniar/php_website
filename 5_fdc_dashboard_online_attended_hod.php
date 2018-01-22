@@ -10,7 +10,7 @@ include_once("includes/functions.php");
 
 //query and result
 //$query = "SELECT * FROM fdc ";
-$query = "SELECT * from fdc inner join facultydetails on fdc.Fac_ID = facultydetails.Fac_ID ";
+$query = "SELECT * from fdc_online_course inner join facultydetails on fdc.Fac_ID = facultydetails.Fac_ID ";
 
 $result = mysqli_query($conn,$query);
 

@@ -147,7 +147,7 @@ Cannot add or update a child row: a foreign key constraint fails (`department`.`
 			}
 			if($success == 1 && $fdc == 'yes')
 			{
-				$sql="INSERT INTO fdc(Fac_ID,Course_Name) VALUES ('$author','$course')";
+				$sql="INSERT INTO fdc_online_course(Fac_ID,Course_Name) VALUES ('$author','$course')";
 				$result = mysqli_query($conn,$sql);
 				
 			}

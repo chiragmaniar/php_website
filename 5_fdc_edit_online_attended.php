@@ -32,7 +32,7 @@ if($_SESSION['username'] == 'hodextc@somaiya.edu')
 if(isset($_POST['id'])){
     $id = $_POST['id'];
 	$_SESSION['id'] = $id;
-    $query = "SELECT * from fdc where FDC_ID = $id";
+    $query = "SELECT * from fdc_online_course where FDC_ID = $id";
     $result = mysqli_query($conn,$query);
     $row = mysqli_fetch_assoc($result);
     $course = $row['Course_Name'];

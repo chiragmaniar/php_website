@@ -23,13 +23,13 @@ $query1 = "SELECT * FROM online_course_attended where FDC_Y_N = 'no'";
 					while($row =mysqli_fetch_assoc($result1)){
 						$course = $row['Course_Name'];
 						
-						$query2 = "delete * FROM fdc where Fac_ID = $fid and Course_Name = '$course'";
+						$query2 = "delete * FROM fdc_online_course where Fac_ID = $fid and Course_Name = '$course'";
 						$result2 = mysqli_query($conn,$query2);
 						
 					}
 		}
 //query and result
-$query = "SELECT * FROM fdc where Fac_ID ='".$_SESSION['Fac_ID']."';";
+$query = "SELECT * FROM fdc_online_course where Fac_ID ='".$_SESSION['Fac_ID']."';";
 $result = mysqli_query($conn,$query);
 
 
