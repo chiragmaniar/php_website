@@ -25,12 +25,12 @@ $flag = $_GET['flag'];
 	if($flag == 1)
 	{
 
-	$sql = "delete from fdc WHERE FDC_ID = $id";
+	$sql = "delete from fdc_online_course WHERE FDC_ID = $id";
 
 			if ($conn->query($sql) === TRUE) {
 								if($_SESSION['username'] == 'hodextc@somaiya.edu')
 								{
-									header("location:5_fdc_dashboard_hod_online_attended.php?alert=delete");
+									header("location:5_fdc_dashboard_online_attended_hod.php?alert=delete");
 								}		
 								else
 									header("location:5_fdc_dashboard_online_attended.php?alert=delete");			

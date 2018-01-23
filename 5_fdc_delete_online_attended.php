@@ -41,6 +41,6 @@ if(isset($_POST['id'])){
 	}
 	document.cookie = "flag="+flag;
 
-    window.location.href = "http://localhost/php_website/51_fdc_delete_online_attended.php?flag=" + flag;
+    window.location.href = "http://localhost/extc2/51_fdc_delete_online_attended.php?flag=" + flag;
 
 </script>

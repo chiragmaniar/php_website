@@ -25,7 +25,7 @@ $flag = $_GET['flag'];
 	if($flag == 1)
 	{
 
-	$sql = "delete from fdc WHERE FDC_ID = $id";
+	$sql = "delete from fdc_online_course WHERE FDC_ID = $id";
 
 			if ($conn->query($sql) === TRUE) {
 								if($_SESSION['username'] == 'hodextc@somaiya.edu')
