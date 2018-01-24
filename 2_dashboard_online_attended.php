@@ -176,7 +176,7 @@ overflow:scroll;
         ?>
     </table>
 	</div>
-	            <div class="text-left"><a href="actcount_course_attended.php"type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus">Add Paper</span></a>
+	            <div class="text-left"><a href="actcount_course_attended.php"type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus">Add Course</span></a>
 	            <a href="count_your_online.php" type="button" class="btn btn-success btn-sm"><span class="glyphicon ">Count Courses</span></a> 
 	            <a href="export_to_excel_course_attended.php" type="button" class="btn btn-success btn-sm"><span class="glyphicon ">Export to Excel</span></a> 
     </div>

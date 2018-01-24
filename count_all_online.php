@@ -108,7 +108,7 @@ include_once("includes/scripting.php");
 								echo '<div class="error">'.$result.'</div>';
 								$flag=1;
 							}
-							if(strtotime($_POST['min_date'])>strtotime(date('Y-m-d H:i:s')))
+							 /*if(strtotime($_POST['min_date'])>strtotime(date('Y-m-d H:i:s')))
 							{
 								$result="Date from cannot be greater than today's date<br>";
 								echo '<div class="error">'.$result.'</div>';
@@ -119,7 +119,7 @@ include_once("includes/scripting.php");
 								$result="Date to cannot be greater than today's date<br>";
 								echo '<div class="error">'.$result.'</div>';
 								$flag=1;
-							}
+							} */
 							if($f == 1)
 							{
 								echo '<div class="error">'.$result.'</div>';

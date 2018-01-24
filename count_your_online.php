@@ -83,7 +83,7 @@ if($_SESSION['username'] == 'hodextc@somaiya.edu')
 												$a=1;
 												$dateset = 1;
 										}
-										if(strtotime($_POST['min_date'])>strtotime(date('Y-m-d H:i:s')))
+										/*if(strtotime($_POST['min_date'])>strtotime(date('Y-m-d H:i:s')))
 										{
 											$result="Date from cannot be greater than today's date<br>";
 											echo '<div class="error">'.$result.'</div>';
@@ -98,7 +98,7 @@ if($_SESSION['username'] == 'hodextc@somaiya.edu')
 											$a=1;
 											$dateset = 1;
 											
-										}
+										}*/
 										if($a == 1)
 										{	
 											echo '<div class="error">'.$result.'</div>';

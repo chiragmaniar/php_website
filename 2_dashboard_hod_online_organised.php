@@ -220,9 +220,10 @@ overflow:scroll;
 	
        
 	</div>
-	            <div class="text-left"><a href="actcount_course_organised.php"type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus">Add Paper</span></a>
+	            <div class="text-left"><a href="actcount_course_organised.php"type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus">Add Course</span></a>
 	            <a href="count_all_online.php" type="button" class="btn btn-success btn-sm"><span class="glyphicon ">Count Publications</span></a> 
-	            <a href="mail_reminder.php" type="button" class="btn btn-success btn-sm" target="_blank"><span class="glyphicon ">Mail Reminder</span></a> </div>
+	            <!--<a href="mail_reminder.php" type="button" class="btn btn-success btn-sm" target="_blank"><span class="glyphicon ">Mail Reminder</span></a>-->
+                 </div>
 
     </div>
 	
