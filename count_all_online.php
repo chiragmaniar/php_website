@@ -9,7 +9,6 @@ include_once('head.php'); ?>
 <?php
 
 	    include_once('sidebar_hod.php');
-  
 ?>
 <?php 
 include_once("includes/functions.php");
@@ -173,6 +172,7 @@ function execute_query()
 			$from_date =  $_SESSION['from_date'] ;
 			$to_date = $_SESSION['to_date'] ;
 			$sql1 = "select count(*) from online_course_attended inner join facultydetails on online_course_attended.Fac_ID = facultydetails.Fac_ID where Date_From >= '$from_date' and Date_From <= '$to_date' ";
+
 			$result=mysqli_query($conn,$sql1);
 			$row =mysqli_fetch_assoc($result);
 			$pr="<table class='table table-stripped table-bordered ' border='1' cellpadding=5px cellspacing = 0px style='margin-bottom: 0px;'>
@@ -188,7 +188,8 @@ function execute_query()
 				?>
 			</table>
 <?php
-			$sql1 = "select * from online_course_attended inner join facultydetails on online_course_attended.Fac_ID = facultydetails.Fac_ID where Date_From >= '$from_date' and Date_From <= '$to_date' ";
+			$sql1 = "select F_NAME,Date_From,Date_To,Course_Name from online_course_attended inner join facultydetails on online_course_attended.Fac_ID = facultydetails.Fac_ID where Date_From >= '$from_date' and Date_From <= '$to_date' ";
+			$_SESSION['Sql_1']=$sql1;
 			$display = 1;
 					$result=mysqli_query($conn,$sql1);
 					if(mysqli_num_rows($result)>0){
@@ -231,7 +232,7 @@ function execute_query()
 						echo "</table>";
 						$pr.= "</table>";
 						$_SESSION['A_1']=$pr;
-						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a><?php 
+						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a>&nbsp<a href='ExportToExcel_online_hod.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Export To Excel</a><?php 
 					}
 					else{
 						echo "No records to display<br>";
@@ -264,9 +265,9 @@ function execute_query()
 
 
 
-				$sql1 = "SELECT * from online_course_attended inner join facultydetails on online_course_attended.Fac_ID = facultydetails.Fac_ID and facultydetails.F_NAME like '%$sname%' ";
+				$sql1 = "SELECT F_NAME,Date_From,Date_To,Course_Name from online_course_attended inner join facultydetails on online_course_attended.Fac_ID = facultydetails.Fac_ID and facultydetails.F_NAME like '%$sname%' ";
 				$display = 2;
-				
+				$_SESSION['Sql_2']=$sql1;
 				$result=mysqli_query($conn,$sql1);
 					if(mysqli_num_rows($result)>0){
 					
@@ -302,7 +303,8 @@ function execute_query()
 						echo "</table>";
 						$pr.="</table>";
 						$_SESSION['A_2']=$pr;
-						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a><?php
+						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a>
+						&nbsp<a href='ExportToExcel_online_hod.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Export To Excel</a><?php
 					}
 					
 					else{
@@ -339,7 +341,8 @@ $sql1 = "SELECT count(*) from online_course_attended inner join facultydetails o
 
 
 
-			$sql1 = "SELECT * from online_course_attended inner join facultydetails on online_course_attended.Fac_ID = facultydetails.Fac_ID and facultydetails.F_NAME like '%$sname%' and online_course_attended.Date_from >= '$from_date' and online_course_attended.Date_from <= '$to_date'";
+			$sql1 = "SELECT F_NAME,Date_From,Date_To,Course_Name from online_course_attended inner join facultydetails on online_course_attended.Fac_ID = facultydetails.Fac_ID and facultydetails.F_NAME like '%$sname%' and online_course_attended.Date_from >= '$from_date' and online_course_attended.Date_from <= '$to_date'";
+			$_SESSION['Sql_3']=$sql1;
 					$result=mysqli_query($conn,$sql1);
 					if(mysqli_num_rows($result)>0){
 					
@@ -375,7 +378,7 @@ $sql1 = "SELECT count(*) from online_course_attended inner join facultydetails o
 						echo "</table>";
 						$pr.= "</table>";
 						$_SESSION['A_3']=$pr;
-						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a><?php
+						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a>&nbsp<a href='ExportToExcel_online_hod.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Export To Excel</a><?php
 					}
 					else{
 						echo "No records to display<br>";
@@ -407,7 +410,8 @@ $sql1 = "SELECT count(*) from online_course_attended inner join facultydetails o
 <?php
 
 
-			$sql1 = "select * from online_course_organised inner join facultydetails on online_course_organised.Fac_ID = facultydetails.Fac_ID where Date_From >= '$from_date' and Date_From <= '$to_date' ";
+			$sql1 = "select F_NAME,Date_From,Date_To,Course_Name from online_course_organised inner join facultydetails on online_course_organised.Fac_ID = facultydetails.Fac_ID where Date_From >= '$from_date' and Date_From <= '$to_date' ";
+			$_SESSION['Sql_4']=$sql1;
 			$display = 4;
 					$result=mysqli_query($conn,$sql1);
 					if(mysqli_num_rows($result)>0){
@@ -449,7 +453,7 @@ $sql1 = "SELECT count(*) from online_course_attended inner join facultydetails o
 						echo "</table>";
 						$pr.= "</table>";
 						$_SESSION['O_1']=$pr;
-						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a><?php
+						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a>&nbsp<a href='ExportToExcel_online_hod.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Export To Excel</a><?php
 					}
 					else{
 						echo "No records to display<br>";
@@ -479,8 +483,9 @@ $sql1 = "SELECT count(*) from online_course_attended inner join facultydetails o
 			</table>
 <?php
 
-				$sql1 = "SELECT * from online_course_organised inner join facultydetails on online_course_organised.Fac_ID = facultydetails.Fac_ID and facultydetails.F_NAME like '%$sname%' ";
+				$sql1 = "SELECT F_NAME,Date_From,Date_To,Course_Name from online_course_organised inner join facultydetails on online_course_organised.Fac_ID = facultydetails.Fac_ID and facultydetails.F_NAME like '%$sname%' ";
 				$display = 5;
+				$_SESSION['Sql_5']=$sql1;
 				$result=mysqli_query($conn,$sql1);
 					if(mysqli_num_rows($result)>0){
 ?>
@@ -515,7 +520,7 @@ $sql1 = "SELECT count(*) from online_course_attended inner join facultydetails o
 						echo "</table>";
 						$pr.= "</table>";
 						$_SESSION['O_2']=$pr;
-						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a><?php
+						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a>&nbsp<a href='ExportToExcel_online_hod.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Export To Excel</a><?php
 					}
 					else{
 						echo "No records to display<br>";
@@ -528,6 +533,7 @@ $sql1 = "SELECT count(*) from online_course_attended inner join facultydetails o
 			$sname = $_SESSION['sname'] ;
 			$sql1 = "SELECT count(*) from online_course_organised inner join facultydetails on online_course_organised.Fac_ID = facultydetails.Fac_ID and facultydetails.F_NAME like '%$sname%' and online_course_organised.Date_from >= '$from_date' and online_course_organised.Date_from <= '$to_date'";
 			$display = 6;
+
 $result=mysqli_query($conn,$sql1);
 			$row =mysqli_fetch_assoc($result);
 			$pr="<table border='1' cellspacing = 0px class='table table-stripped table-bordered ' style='margin-bottom: 0px'>
@@ -547,7 +553,8 @@ $result=mysqli_query($conn,$sql1);
 				?>
 			</table>
 <?php
-			$sql1 = "SELECT * from online_course_organised inner join facultydetails on online_course_organised.Fac_ID = facultydetails.Fac_ID and facultydetails.F_NAME like '%$sname%' and online_course_organised.Date_from >= '$from_date' and online_course_organised.Date_from <= '$to_date'";
+			$sql1 = "SELECT F_NAME,Date_From,Date_To,Course_Name from online_course_organised inner join facultydetails on online_course_organised.Fac_ID = facultydetails.Fac_ID and facultydetails.F_NAME like '%$sname%' and online_course_organised.Date_from >= '$from_date' and online_course_organised.Date_from <= '$to_date'";
+			$_SESSION['Sql_6']=$sql1;
 					$result=mysqli_query($conn,$sql1);
 					if(mysqli_num_rows($result)>0){
 					
@@ -583,7 +590,9 @@ $result=mysqli_query($conn,$sql1);
 						echo "</table>";
 						$pr.= "</table>";
 						$_SESSION['O_3']=$pr;
-						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a><?php
+						?><a href='print_all_online.php?display=<?php echo $display;?>' style='margin-left:5px' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a>
+						<a href='ExportToExcel_online_hod.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Export To Excel</a>
+						<?php
 					}
 					else{
 						echo "No records to display<br>";

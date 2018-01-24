@@ -32,7 +32,7 @@ if($_SESSION['username'] == 'hodextc@somaiya.edu')
 if(isset($_POST['id'])){
     $id = $_POST['id'];
 	$_SESSION['id'] = $id;
-    $query = "SELECT * from fdc where FDC_ID = $id";
+    $query = "SELECT * from fdc_online_course where FDC_ID = $id";
     $result = mysqli_query($conn,$query);
     $row = mysqli_fetch_assoc($result);
     $paperTitle = $row['Paper_title'];
@@ -84,7 +84,7 @@ if(isset($_POST['update'])){
 					$fee_avail = "'".$fee_avail."'";
 					
 					
-					$sql = "update fdc set min_no = $min_no,serial_no = $serial_no,period = $period,od_approv = '$od_approv',od_avail = '$od_avail', fee_sac = $fee_sac,fee_avail =$fee_avail WHERE FDC_ID = $id";
+					$sql = "update fdc_online_course set min_no = $min_no,serial_no = $serial_no,period = $period,od_approv = '$od_approv',od_avail = '$od_avail', fee_sac = $fee_sac,fee_avail =$fee_avail WHERE FDC_ID = $id";
 
 							if ($conn->query($sql) === TRUE) {
 								

@@ -8,7 +8,6 @@ session_start();
 }
 include_once("includes/connection.php");
 
-
 include_once('head.php'); ?>
 <?php include_once('header.php'); ?>
 <?php 
@@ -104,8 +103,6 @@ if($_SESSION['username'] == 'hodextc@somaiya.edu')
 										{	
 											echo '<div class="error">'.$result.'</div>';
 										}
-													
-								
 										else if($dateset== 0 && $a == 0)
 										{
 								$_SESSION['from_date'] = $_POST['min_date'];
@@ -128,8 +125,9 @@ if($_SESSION['username'] == 'hodextc@somaiya.edu')
 						</tr>
 					</table>
 					<?php
-					$sql1 = "select * from online_course_attended where Date_from >= '$from_date' and Date_from <= '$to_date' and Fac_ID = $Fac_ID ";
+					$sql1 = "select Date_From,Date_To,Course_Name from online_course_attended where Date_From >= '$from_date' and Date_From <= '$to_date' and Fac_ID = $Fac_ID ";
 					$display = 1;
+					$_SESSION['sql_att']=$sql1;
 					$result=mysqli_query($conn,$sql1);
 					if(mysqli_num_rows($result)>0){
 						$total1+=1;
@@ -151,7 +149,7 @@ if($_SESSION['username'] == 'hodextc@somaiya.edu')
 							echo "<td>".$name."</td>";
 							echo "</tr>";
 						}
-						echo "</table><a href='print_your_online.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a>";
+						echo "</table><a href='print_your_online.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a>&nbsp<a href='ExportToExcel_online.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Export To Excel</a>";
 					}
 					else{
 						echo "No records to display<br>";
@@ -162,8 +160,9 @@ if($_SESSION['username'] == 'hodextc@somaiya.edu')
 						<tr>
 							<th>Total Count</th>
 							<?php
-								$sql1 = "select count(Course_Name) from online_course_organised where Date_from >= '$from_date' and Date_from <= '$to_date' and Fac_ID = $Fac_ID ";			
+								$sql1 = "select count(Course_Name) from online_course_organised where Date_From >= '$from_date' and Date_From <= '$to_date' and Fac_ID = $Fac_ID ";			
 								$result=mysqli_query($conn,$sql1);
+								
 								$row =mysqli_fetch_assoc($result);
 
 								echo "<th>".$row['count(Course_Name)']."</th></tr></table>";							
@@ -171,9 +170,10 @@ if($_SESSION['username'] == 'hodextc@somaiya.edu')
 						</tr>
 					</table>
 					<?php
-					$sql1 = "select * from online_course_organised where Date_from >= '$from_date' and Date_from <= '$to_date' and Fac_ID = $Fac_ID ";
+					$sql1 = "select Date_From,Date_To,Course_Name from online_course_organised where Date_From >= '$from_date' and Date_From <= '$to_date' and Fac_ID = $Fac_ID ";
 					$display = 1;
 					$result=mysqli_query($conn,$sql1);
+					$_SESSION['sql_org']=$sql1;
 					if(mysqli_num_rows($result)>0){
 						$total2+=1;
 ?>
@@ -194,7 +194,7 @@ if($_SESSION['username'] == 'hodextc@somaiya.edu')
 							echo "<td>".$name."</td>";
 							echo "</tr>";
 						}
-						echo "</table><a href='print_your_online.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a>";
+						echo "</table><a href='print_your_online.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Print</a>&nbsp<a href='ExportToExcel_online.php' type='button' class='btn btn-warning btn-lg' target='_blank'>Export To Excel</a>";
 					}
 					else{
 						echo "No records to display<br>";
@@ -206,11 +206,9 @@ if($_SESSION['username'] == 'hodextc@somaiya.edu')
 								{
 									$result="Date fields cannot be empty<br>";
 									echo '<div class="error">'.$result.'</div>';
-
 								}
 								$_SESSION['set']=$set;
 								$_SESSION['dateset']=$dateset;
-
 						}
 						?>
                 </form>
