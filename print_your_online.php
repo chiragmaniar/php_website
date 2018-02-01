@@ -21,8 +21,8 @@ session_start();
 						$display = 1;
 						$result=mysqli_query($conn,$sql1);
 						if(mysqli_num_rows($result)>0){
-
-							$op="<table border='1' cellspacing='0' id = 'example1' class='table table-stripped table-bordered'>
+							$op="<p align='center'  style='font-size:20px'><strong>K.J.Somaiya College of Engineering</strong></p>"."<p align='center'>(Autonomous College affiliated to University of Mumbai)</p>";
+							$op.="<table border='1' cellspacing='0' id = 'example1' class='table table-stripped table-bordered'>
 								<tr>
 									<th><strong>Date From</strong></th>
 									<th><strong>Date To</strong></th>
@@ -54,8 +54,8 @@ session_start();
 						$display = 1;
 						$result=mysqli_query($conn,$sql1);
 						if(mysqli_num_rows($result)>0){
-
-							$op="<table border='1' cellspacing='0' class='table table-stripped table-bordered'>
+							$op="<p align='center'  style='font-size:20px'><strong>K.J.Somaiya College of Engineering</strong></p>"."<p align='center'>(Autonomous College affiliated to University of Mumbai)</p> ";
+							$op.="<table border='1' cellspacing='0' class='table table-stripped table-bordered'>
 								<tr>
 									<th>Date From</th>
 									<th>Date To</th>
@@ -73,6 +73,7 @@ session_start();
 							}
 							$op.= "</table>";
 						}
+						
 						echo $op;
 						
 						$dompdf = new DOMPDF();

@@ -6,6 +6,7 @@ session_start();
 }
 include_once('head.php'); ?>
 <?php include_once('header.php'); ?>
+
 <?php
 
 	    include_once('sidebar_hod.php');
@@ -85,7 +86,7 @@ include_once("includes/scripting.php");
 							if (empty($_POST['min_date']) && empty($_POST['max_date']))
 							{
 								$result="Date field cannot be empty<br>";
-								$v = 1;
+ 								$v = 1;
 							}
 							if (empty($_POST['fn']))
 							{
@@ -175,7 +176,8 @@ function execute_query()
 
 			$result=mysqli_query($conn,$sql1);
 			$row =mysqli_fetch_assoc($result);
-			$pr="<table class='table table-stripped table-bordered ' border='1' cellpadding=5px cellspacing = 0px style='margin-bottom: 0px;'>
+			$pr="<p align='center'  style='font-size:20px'><strong>K.J.Somaiya College of Engineering</strong></p>"."<p align='center'>(Autonomous College affiliated to University of Mumbai)</p>";
+			$pr.="<table class='table table-stripped table-bordered ' border='1' cellpadding=5px cellspacing = 0px style='margin-bottom: 0px;'>
 				<tr>
 				<th>Total Count</th>";
 					$pr.= "<th>".$row['count(*)']."</th></tr></table>";
@@ -244,7 +246,8 @@ function execute_query()
 				$sql1 = "SELECT count(*) from online_course_attended inner join facultydetails on online_course_attended.Fac_ID = facultydetails.Fac_ID and facultydetails.F_NAME like '%$sname%' ";
 			$result=mysqli_query($conn,$sql1);
 			$row =mysqli_fetch_assoc($result);
-			$pr="<table class='table table-stripped table-bordered ' border='1' cellspacing =0 style='margin-bottom: 0px'>
+			$pr="<p align='center'  style='font-size:20px'><strong>K.J.Somaiya College of Engineering</strong></p>"."<p align='center'>(Autonomous College affiliated to University of Mumbai)</p>";
+			$pr.="<table class='table table-stripped table-bordered ' border='1' cellspacing =0 style='margin-bottom: 0px'>
 				<tr>
 				<th>Faculty</th>
 				<th>Total Count</th></tr><tr>";
@@ -320,7 +323,8 @@ $sql1 = "SELECT count(*) from online_course_attended inner join facultydetails o
 			$display = 3;
 			$result=mysqli_query($conn,$sql1);
 			$row =mysqli_fetch_assoc($result);
-			$pr="<table class='table table-stripped table-bordered ' border='1' cellspacing = 0px style='margin-bottom: 0px'>
+			$pr="<p align='center'  style='font-size:20px'><strong>K.J.Somaiya College of Engineering</strong></p>"."<p align='center'>(Autonomous College affiliated to University of Mumbai)</p>";
+			$pr.="<table class='table table-stripped table-bordered ' border='1' cellspacing = 0px style='margin-bottom: 0px'>
 				<tr>
 				<th>Faculty</th>
 				<th>Total Count</th></tr><tr>";
@@ -395,7 +399,8 @@ $sql1 = "SELECT count(*) from online_course_attended inner join facultydetails o
 
 			$result=mysqli_query($conn,$sql1);
 			$row =mysqli_fetch_assoc($result);
-			$pr="<table border='1' cellspacing = 0px class='table table-stripped table-bordered ' style='margin-bottom: 0px'>
+			$pr="<p align='center'  style='font-size:20px'><strong>K.J.Somaiya College of Engineering</strong></p>"."<p align='center'>(Autonomous College affiliated to University of Mumbai)</p>";
+			$pr.="<table border='1' cellspacing = 0px class='table table-stripped table-bordered ' style='margin-bottom: 0px'>
 				<tr>
 				<th>Total Count</th>";
 					$pr.= "<th>".$row['count(*)']."</th></tr></table>";
@@ -465,7 +470,8 @@ $sql1 = "SELECT count(*) from online_course_attended inner join facultydetails o
 				$sql1 = "SELECT count(*) from online_course_organised inner join facultydetails on online_course_organised.Fac_ID = facultydetails.Fac_ID and facultydetails.F_NAME like '%$sname%' ";
 				$result=mysqli_query($conn,$sql1);
 				$row =mysqli_fetch_assoc($result);
-				$pr="<table class='table table-stripped table-bordered ' border='1' cellspacing = 0px style='margin-bottom: 0px'>
+				$pr="<p align='center'  style='font-size:20px'><strong>K.J.Somaiya College of Engineering</strong></p>"."<p align='center'>(Autonomous College affiliated to University of Mumbai)</p>";
+				$pr.="<table class='table table-stripped table-bordered ' border='1' cellspacing = 0px style='margin-bottom: 0px'>
 				<tr>
 				<th>Faculty</th>
 				<th>Total Count</th></tr><tr>";
@@ -536,7 +542,8 @@ $sql1 = "SELECT count(*) from online_course_attended inner join facultydetails o
 
 $result=mysqli_query($conn,$sql1);
 			$row =mysqli_fetch_assoc($result);
-			$pr="<table border='1' cellspacing = 0px class='table table-stripped table-bordered ' style='margin-bottom: 0px'>
+			$pr="<p align='center'  style='font-size:20px'><strong>K.J.Somaiya College of Engineering</strong></p>"."<p align='center'>(Autonomous College affiliated to University of Mumbai)</p>";
+			$pr.="<table border='1' cellspacing = 0px class='table table-stripped table-bordered ' style='margin-bottom: 0px'>
 				<tr>
 				<th>Faculty</th>
 				<th>Total Count</th></tr><tr>";				
@@ -600,7 +607,9 @@ $result=mysqli_query($conn,$sql1);
 		}
 	}
 }
+
 ?>
+
 <?php 
 function print1($op){
 	$dompdf = new DOMPDF();
@@ -610,3 +619,5 @@ function print1($op){
 	$dompdf->stream('hi',array('Attachment'=>0));
 }
 ?>
+
+
