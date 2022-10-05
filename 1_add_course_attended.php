@@ -47,15 +47,6 @@ if(isset($_POST['add'])){
 	$organised_array = $_POST['organised'];
     $purpose_array = $_POST['purpose'];
 	$fdc_array = $_POST['fdc'];
-
-	/*	$min_no_array=$_POST['min_no'];
-		$serial_no_array=$_POST['serial_no'];
-				$period_array = $_POST['period'];
-
-		$od_approv_array=$_POST['od_approv'];
-		$od_avail_array=$_POST['od_avail'];
-		$fee_sac_array=$_POST['fee_sac'];
-		$fee_avail_array=$_POST['fee_avail'];*/
 	
 	
     //check for any blank input which are required
